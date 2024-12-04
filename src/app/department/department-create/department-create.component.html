@@ -1,0 +1,53 @@
+<div class="main-container">
+    <h1 class="primary-header">
+        Parent Deparment
+    </h1>
+    <form action="" [formGroup]="parentDepartMentForm">
+
+    <div class="row ">
+            <div class="col-lg-3">
+                <label for="" class="mb-2">Department</label>
+                <select name="department" id="department" class="form-control" formControlName="department">
+                    <option value="IT">IT</option>
+                    <option value="MECH">MECH</option>
+                    <option value="EEE">EEE</option>
+                    <option value="ECE">ECE</option>
+                </select>
+    
+            </div>
+            <div class="col-lg-3">
+                <label for="" class="mb-2">Hod Name</label>
+                <input type="text"  class="form-control" placeholder="Please Enter Hod Name" formControlName="hodName">
+            </div>
+            <div class="col-lg-2">
+                <label for="" class="mb-3" style="visibility: hidden;">Hod Name</label>
+                <button class="btn btn-primary mt-5" (click)="createParentDepartment()">Add</button>
+            </div>
+     
+
+    </div>
+</form>
+  <div class="parent-table">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Dept</th>
+            <th scope="col">Hod Name</th>
+          
+          </tr>
+        </thead>
+        <tbody>
+            
+          <tr *ngFor="let data of parentDepartMentList">
+            
+            <th scope="row">{{data.dept}}</th>
+            <td>{{data.hod}}</td>
+          </tr>  
+          <tr *ngIf="parentDepartMentList.length ==0">
+            <td class="text-center">No data Found!</td>
+          </tr>
+
+        </tbody>
+      </table>
+  </div>
+</div>
